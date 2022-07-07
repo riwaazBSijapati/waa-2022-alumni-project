@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: alumni
+  datasource:
+    password: waaAlumni
+    url: jdbc:postgresql://postgresql-78373-0.cloudclusters.net:19868/alumni
+    username: zahra
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+server:
+  port: 8080
