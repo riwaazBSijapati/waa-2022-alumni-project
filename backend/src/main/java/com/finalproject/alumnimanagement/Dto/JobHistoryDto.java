@@ -1,22 +1,19 @@
-package com.finalproject.alumnimanagement.Entity;
-
+package com.finalproject.alumnimanagement.Dto;
+import com.finalproject.alumnimanagement.Entity.Tag;
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity
+
 @Data
-public class JobHistory {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class JobHistoryDto {
     private int id;
     private String companyName;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private String reasonToLeave;
     private String comments;
-    @OneToMany
     private List<Tag> tags;
 }
