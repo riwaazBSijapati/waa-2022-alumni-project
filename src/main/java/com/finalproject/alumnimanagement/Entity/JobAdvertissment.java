@@ -18,4 +18,4 @@ public class JobAdvertissment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-}nnn
+}
