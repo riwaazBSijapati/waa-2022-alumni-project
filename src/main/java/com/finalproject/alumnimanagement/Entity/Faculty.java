@@ -21,8 +21,9 @@ public class Faculty {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
     private String name;
-    private String emain;
+    private String email;
     private String password;
+    private Role role;
     private boolean active;
     private Date lastLoggedInAt;
 
