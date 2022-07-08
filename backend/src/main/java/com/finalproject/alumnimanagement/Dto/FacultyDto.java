@@ -1,8 +1,8 @@
 package com.finalproject.alumnimanagement.Dto;
 
 import lombok.Data;
-
 import java.util.Date;
+
 
 @Data
 public class FacultyDto {
@@ -11,6 +11,7 @@ public class FacultyDto {
     private String email;
     private boolean active;
     private Date lastLoggedInAt;
+    private boolean is_deleted;
 
 }
 
