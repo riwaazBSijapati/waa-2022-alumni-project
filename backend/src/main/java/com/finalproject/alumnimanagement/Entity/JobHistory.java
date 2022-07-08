@@ -2,9 +2,11 @@ package com.finalproject.alumnimanagement.Entity;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Data
@@ -15,8 +17,8 @@ public class JobHistory {
     private String companyName;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private String reasonToLeave;
-    private String comments;
-    @OneToMany
-    private List<Tag> tags;
+
+
+
+
 }
