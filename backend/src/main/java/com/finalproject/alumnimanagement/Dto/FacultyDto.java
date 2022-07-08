@@ -1,8 +1,8 @@
 package com.finalproject.alumnimanagement.Dto;
 
 import lombok.Data;
-
 import java.util.Date;
+
 
 @Data
 public class FacultyDto {
