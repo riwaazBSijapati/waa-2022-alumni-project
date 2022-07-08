@@ -23,8 +23,9 @@ public class Faculty {
     private String name;
     private String email;
     private String password;
-    private Role role;
+   // private Role role;
     private boolean active;
     private Date lastLoggedInAt;
+    private boolean is_deleted;
 
 }

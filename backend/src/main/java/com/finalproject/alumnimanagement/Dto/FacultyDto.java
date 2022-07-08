@@ -11,6 +11,7 @@ public class FacultyDto {
     private String email;
     private boolean active;
     private Date lastLoggedInAt;
+    private boolean is_deleted;
 
 }
 
