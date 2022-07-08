@@ -5,11 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -19,12 +17,16 @@ import java.util.Date;
 public class Faculty {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
+    private int id;
     private String name;
     private String email;
     private String password;
-    private Role role;
     private boolean active;
     private Date lastLoggedInAt;
+    private boolean is_deleted;
+
+
+    @OneToMany(mappedBy = "faculty")
+    private List<Student> student;
 
 }
