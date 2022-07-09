@@ -20,5 +20,5 @@ public class JobAdvertisement {
     private String benefits;
     @OneToMany
     private List<Tag> tags;
-    private List<String> files;
+   // private List<String> files;
 }
