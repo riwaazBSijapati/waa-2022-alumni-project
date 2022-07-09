@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/backend/AlumniManagement.iml" filepath="$PROJECT_DIR$/backend/AlumniManagement.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/waa-2022-alumni-project.iml" filepath="$PROJECT_DIR$/.idea/waa-2022-alumni-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/waa-2022-alumni-project_SECONDCLONE.iml" filepath="$PROJECT_DIR$/.idea/waa-2022-alumni-project_SECONDCLONE.iml" />
     </modules>
   </component>
 </project>

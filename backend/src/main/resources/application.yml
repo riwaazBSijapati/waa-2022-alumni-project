@@ -12,9 +12,9 @@ spring:
   application:
     name: alumni
   datasource:
-    password: waaAlumni
-    url: jdbc:postgresql://postgresql-78373-0.cloudclusters.net:19868/alumni
-    username: zahra
+    password: 12345
+    url: jdbc:postgresql://localhost:5432/alumni
+    username: postgres
   jpa:
     hibernate:
       ddl-auto: update

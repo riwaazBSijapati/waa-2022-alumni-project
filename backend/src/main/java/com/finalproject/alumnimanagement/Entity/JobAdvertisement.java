@@ -16,6 +16,7 @@ import java.util.List;
 public class JobAdvertisement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int id;
     private String description;
     private String benefits;

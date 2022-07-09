@@ -50,4 +50,9 @@ public class AlumniManagementApplication {
         return rabbitTemplate;
     }*/
 
+
+    @Bean
+    public ModelMapper getModelMapper() {
+        return new ModelMapper();
+    }
 }
