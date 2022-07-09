@@ -18,5 +18,10 @@ public interface StudentRepo extends CrudRepository<Student, Integer> {
     @Query(value = "select * from Student where lower(first_name) like %:name% or lower(last_name) like %:name% "  , nativeQuery = true )
     List<Student> findStudentByName(String name);
 
+    @Query(value = "select * from Student where lower(city) like %:city%", nativeQuery = true)
+    List<Student> findStudentByCity(String city);
+    @Query(value = "select * from Student where lower(state) like %:state%", nativeQuery = true)
+    List<Student> findStudentByState(String state);
+
 
 }

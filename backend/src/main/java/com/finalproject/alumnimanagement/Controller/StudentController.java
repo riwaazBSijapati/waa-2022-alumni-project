@@ -60,9 +60,39 @@ public class StudentController {
         if (result) {
             return ResponseEntity.ok(result);
         }
-        return ResponseEntity.badRequest().body(null);
+        return ResponseEntity.badRequest().body("the student is not found ");
 
+    }
+
+    @PutMapping
+    public ResponseEntity<?> upStudent(@RequestBody Student student){
+            Student result = studentService.updateStudent(student);
+            if(result.getId() > 0){
+                return ResponseEntity.ok(result);
+            }
+            return ResponseEntity.badRequest().body("Student no found");
+
+    }
+
+    @GetMapping("/cityfilter")
+    public ResponseEntity<?> getByCity(@RequestParam String city){
+        List<StudentDto> result = studentService.getStudentByCity(city);
+        if (result.size()>0) {
+            return ResponseEntity.ok(result);
+        }
+        return ResponseEntity.badRequest().body(null);
+    }
+
+    @GetMapping("/stateFilter")
+    public ResponseEntity<?> getByState(@RequestParam String state){
+        List<StudentDto> result = studentService.getStudentByState(state);
+        if (result.size()>0) {
+            return ResponseEntity.ok(result);
+        }
+        return ResponseEntity.badRequest().body(null);
     }
 
 
 }
+
+

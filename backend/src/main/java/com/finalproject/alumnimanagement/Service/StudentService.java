@@ -13,4 +13,11 @@ public interface StudentService {
     StudentDto getStudentsById(int id);
     List<StudentDto> getStudentByName(String name);
     Boolean deleteStudentById(int id);
+    Student updateStudent(Student student);
+
+    List<StudentDto> getStudentByCity(String city);
+    List<StudentDto> getStudentByState(String state);
+
+
+
 }

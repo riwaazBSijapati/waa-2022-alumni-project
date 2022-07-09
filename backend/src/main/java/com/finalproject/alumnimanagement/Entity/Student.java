@@ -8,7 +8,8 @@ import javax.persistence.*;
 
 @Entity
 @Data
-
+@AllArgsConstructor
+@NoArgsConstructor
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,9 +21,16 @@ public class Student {
     private boolean active;
     private String job_interess;
     private boolean is_deleted;
+    private String state;
+    private String city;
+
+
 
 
     @ManyToOne
     private Faculty faculty;
+
+    @ManyToOne
+    private Departement major;
 
 }

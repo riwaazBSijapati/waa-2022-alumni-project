@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -20,5 +21,5 @@ public class JobAdvertisement {
     private String benefits;
     @OneToMany
     private List<Tag> tags;
-    private List<String> files;
+   // private List<String> files;
 }
