@@ -19,6 +19,9 @@ public class JobHistory {
     private LocalDateTime endDate;
 
 
+//    @Fetch(FetchMode.SELECT)
+//@BatchSize(size=10)
+
 
 
 }

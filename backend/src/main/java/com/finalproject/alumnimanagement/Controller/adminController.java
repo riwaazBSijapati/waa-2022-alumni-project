@@ -4,10 +4,12 @@ package com.finalproject.alumnimanagement.Controller;
 import com.finalproject.alumnimanagement.Aspect.Annotations.checkToken;
 import com.finalproject.alumnimanagement.Dto.FacultyDto;
 import com.finalproject.alumnimanagement.Dto.StudentDto;
+import com.finalproject.alumnimanagement.Entity.Faculty;
 import com.finalproject.alumnimanagement.Service.AdminService;
 import com.finalproject.alumnimanagement.Service.FacultyService;
 import com.finalproject.alumnimanagement.Service.StudentService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,8 +29,13 @@ public class adminController {
 
     @checkToken
     @GetMapping("/faculty")
-    public List<FacultyDto> getAllFaculty(){
-        return null;
+    public ResponseEntity<List<FacultyDto>> getAllFaculty(){
+        List<FacultyDto> result = adminService.getAllFaculty();
+        if(result.size() >0){
+            return ResponseEntity.ok(result);
+        }
+        return ResponseEntity.badRequest().body(null);
+    }
     }
 
     @checkToken
