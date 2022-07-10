@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 
 export default function Register() {
     const navigate = useNavigate();
-
+    
     const handleSubmit = event => {
         event.preventDefault();
         navigate('/login');

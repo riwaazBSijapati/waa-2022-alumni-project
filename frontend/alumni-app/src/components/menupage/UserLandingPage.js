@@ -3,24 +3,17 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import LeftBar from './LeftBar'
+import Nav from 'react-bootstrap'
 
-export default function UserLandingPage(){
-    return(
+export default function UserLandingPage() {
+    return (
         <div>
-            <Container>
-                <Row className="justify-content-md-center">
-                    <Col md="auto">
-                        <div>
-                            <li>
-                                <ul>1</ul>
-                                <ul>2</ul>
-                                <ul>3</ul>
-                            </li>
-                        </div>
-                    </Col>
-                    <Col xs lg="2"><LeftBar/></Col>
-                </Row>
-            </Container>
+            <div>
+                <LeftBar></LeftBar>
+            </div>
+            <div>
+                
+            </div>
         </div>
     )
 }
