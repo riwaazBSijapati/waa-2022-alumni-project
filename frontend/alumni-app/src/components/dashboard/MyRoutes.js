@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router";
-import Login from "../login/Login";
-import Register from "../login/Register";
+import Login from "../auth/Login";
+import Register from "../auth/Register";
 import UserLandingPage from "../menupage/UserLandingPage";
 
 
