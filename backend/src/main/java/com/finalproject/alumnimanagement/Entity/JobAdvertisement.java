@@ -19,7 +19,11 @@ public class JobAdvertisement {
     private int id;
     private String description;
     private String benefits;
+    private String file;
+    private String state;
+    @OneToOne
+    private Student student;
     @OneToMany
     private List<Tag> tags;
-    //private List<String> files;
+
 }
