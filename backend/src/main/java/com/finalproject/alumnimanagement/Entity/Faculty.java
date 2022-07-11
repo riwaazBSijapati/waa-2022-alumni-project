@@ -29,4 +29,9 @@ public class Faculty {
     @OneToMany(mappedBy = "faculty")
     private List<Student> student;
 
+    @ManyToOne
+    private Departement department;
+
+
+
 }

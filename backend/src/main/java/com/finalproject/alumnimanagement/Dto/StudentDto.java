@@ -14,5 +14,7 @@ public class StudentDto {
     private boolean active;
     private String job_interess;
     private boolean is_deleted;
+    private String state;
+    private String city;
 
 }

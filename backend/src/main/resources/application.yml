@@ -1,6 +1,16 @@
+app:
+  message: Message has been sent Successfully..
 spring:
+  rabbitmq:
+    host: localhost
+    password: guest
+    port: 15672
+    username: guest
+    exchange: user.exchange
+    queue: user.queue
+    routingkey: user.routingkey
   application:
-    name: alumni
+  name: alumni
   datasource:
     password: waaAlumni
     url: jdbc:postgresql://postgresql-78373-0.cloudclusters.net:19868/alumni
@@ -18,4 +28,4 @@ spring:
     init:
       mode: always
 server:
-  port: 8080
+  port: 8081

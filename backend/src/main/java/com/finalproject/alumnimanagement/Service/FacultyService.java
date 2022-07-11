@@ -10,4 +10,5 @@ public interface FacultyService {
     Faculty getById(int id);
     List<Faculty> getAll();
     Boolean deleteById(int id);
+
 }
