@@ -1,4 +1,9 @@
+import StudentProfile from "../student/StudentProfile";
+
 export default function Profile() {
+    
     return (
-        <div>HALS</div>
+        <div>
+            <StudentProfile/>
+        </div>
     )}

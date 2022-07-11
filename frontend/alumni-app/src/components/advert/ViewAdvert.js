@@ -1,4 +1,5 @@
+import React from "react"
 export default function ViewAdvert() {
     return (
-        <div>HALS</div>
+        <div>View Advert</div>
     )}

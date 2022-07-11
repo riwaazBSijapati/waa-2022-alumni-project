@@ -3,7 +3,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 // import AuthContext from "../../context/AuthProvider";
-import axios from "../../api/axios";
+// import {axios} from "../../api/axios";
+import axios from "axios";
 import './Auth.css'
 
 export default function Login() {
@@ -31,7 +32,7 @@ export default function Login() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await axios.post(
-            '/students',
+            'localhost:8080/api/v1',
             {
                 email: email,
                 password: pwd,
