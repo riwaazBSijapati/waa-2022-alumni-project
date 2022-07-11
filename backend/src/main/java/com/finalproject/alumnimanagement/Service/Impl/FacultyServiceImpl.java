@@ -1,4 +1,4 @@
-package com.finalproject.alumnimanagement.Service.Impl;
+package com.finalproject.alumnimanagement.Service.impl;
 
 
 import com.finalproject.alumnimanagement.Entity.Faculty;

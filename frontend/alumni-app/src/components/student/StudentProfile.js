@@ -37,9 +37,7 @@ export default function StudentProfile() {
         <div>
             <h1>Student First Name: {students.first_name}</h1>
             <h1>Student Last Name: {students.last_name}</h1>
-            <Nav.Link>
-                
-            </Nav.Link>
+            <Button></Button>
         </div>
     )
 }
