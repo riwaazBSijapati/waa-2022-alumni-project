@@ -32,4 +32,6 @@ public class Faculty {
     @ManyToOne
     private Departement department;
 
+
+
 }

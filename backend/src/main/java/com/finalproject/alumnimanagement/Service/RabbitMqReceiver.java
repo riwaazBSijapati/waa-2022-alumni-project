@@ -1,7 +1,6 @@
 package com.finalproject.alumnimanagement.Service;
 
-
-import com.finalproject.alumnimanagement.Dto.User;
+import com.finalproject.alumnimanagement.Entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

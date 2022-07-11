@@ -8,8 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,12 +24,12 @@ public class Student {
     private String city;
 
 
-
-
     @ManyToOne
     private Faculty faculty;
 
+
     @ManyToOne
     private Departement major;
+
 
 }

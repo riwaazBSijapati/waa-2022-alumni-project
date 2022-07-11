@@ -10,11 +10,11 @@ spring:
     queue: user.queue
     routingkey: user.routingkey
   application:
-    name: alumni
+  name: alumni
   datasource:
-    password: 12345
-    url: jdbc:postgresql://localhost:5432/alumni
-    username: postgres
+    password: waaAlumni
+    url: jdbc:postgresql://postgresql-78373-0.cloudclusters.net:19868/alumni
+    username: zahra
   jpa:
     hibernate:
       ddl-auto: update
@@ -28,4 +28,4 @@ spring:
     init:
       mode: always
 server:
-  port: 8080
+  port: 8081

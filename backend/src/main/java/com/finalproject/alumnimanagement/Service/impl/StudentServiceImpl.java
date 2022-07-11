@@ -1,4 +1,4 @@
-package com.finalproject.alumnimanagement.Service.impl;
+package com.finalproject.alumnimanagement.Service.Impl;
 
 
 import com.finalproject.alumnimanagement.Dto.StudentDto;
@@ -30,16 +30,15 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student addStudent(Student student) {
         student.set_deleted(false);
-        student.setActive(true);
         return studentRepo.save(student);
     }
 
     @Override
     public List<StudentDto> getAllStudents() {
-        List<StudentDto> result = new ArrayList<StudentDto>();
-        studentRepo.findAll().forEach(x -> {
-            if (!x.is_deleted()) {
-                StudentDto std = modelMapper.map(x, StudentDto.class);
+        List<StudentDto> result= new ArrayList<StudentDto>();
+        studentRepo.findAll().forEach(x->{
+            if(!x.is_deleted()){
+                StudentDto std= modelMapper.map(x, StudentDto.class);
                 result.add(std);
             }
         });
@@ -50,30 +49,30 @@ public class StudentServiceImpl implements StudentService {
     public StudentDto getStudentsById(int id) {
 
         Optional<Student> result1 = studentRepo.findStudentById(id);
-        if (result1.isPresent()) {
+        if(result1.isPresent()){
             StudentDto std = modelMapper.map(result1.get(), StudentDto.class);
-            return std;
+             return std;
         }
         return new StudentDto();
     }
 
     @Override
     public List<StudentDto> getStudentByName(String name) {
-        List<StudentDto> result = new ArrayList<StudentDto>();
-        studentRepo.findStudentByName(name.toLowerCase()).forEach(x -> {
-            if (!x.is_deleted()) {
+        List<StudentDto> result =new ArrayList<StudentDto>();
+        studentRepo.findStudentByName(name.toLowerCase()).forEach(x->{
+            if(!x.is_deleted()){
                 StudentDto std = modelMapper.map(x, StudentDto.class);
                 result.add(std);
             }
         });
-        return result;
+            return result;
     }
 
     @Override
     public Boolean deleteStudentById(int id) {
         Optional<Student> findStudent = studentRepo.findById(id);
 
-        if (findStudent.isPresent()) {
+        if(findStudent.isPresent()){
             Student loStudent = findStudent.get();
             loStudent.set_deleted(true);
             studentRepo.save(loStudent);
@@ -81,7 +80,6 @@ public class StudentServiceImpl implements StudentService {
         }
         return false;
     }
-
     @Override
     public Student updateStudent(Student student) {
         var findStd = studentRepo.findStudentById(student.getId());

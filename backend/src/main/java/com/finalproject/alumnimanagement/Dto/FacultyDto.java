@@ -12,6 +12,9 @@ public class FacultyDto {
     private boolean active;
     private Date lastLoggedInAt;
     private boolean is_deleted;
+    private String state;
+    private String city;
+
 
 }
 

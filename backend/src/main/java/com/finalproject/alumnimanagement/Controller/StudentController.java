@@ -66,11 +66,11 @@ public class StudentController {
 
     @PutMapping
     public ResponseEntity<?> upStudent(@RequestBody Student student){
-            Student result = studentService.updateStudent(student);
-            if(result.getId() > 0){
-                return ResponseEntity.ok(result);
-            }
-            return ResponseEntity.badRequest().body("Student no found");
+        Student result = studentService.updateStudent(student);
+        if(result.getId() > 0){
+            return ResponseEntity.ok(result);
+        }
+        return ResponseEntity.badRequest().body("Student no found");
 
     }
 
@@ -93,6 +93,5 @@ public class StudentController {
     }
 
 
+
 }
-
-

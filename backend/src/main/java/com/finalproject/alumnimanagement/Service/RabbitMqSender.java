@@ -1,6 +1,7 @@
 package com.finalproject.alumnimanagement.Service;
 
-import com.finalproject.alumnimanagement.Dto.User;
+
+import com.finalproject.alumnimanagement.Entity.User;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,4 +23,5 @@ public class RabbitMqSender {
         rabbitTemplate.convertAndSend(exchange,routingkey, user);
     }
 }
+
 
