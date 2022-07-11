@@ -15,5 +15,6 @@ public class JobHistoryDto {
     private LocalDateTime endDate;
     private String reasonToLeave;
     private String comments;
+    private String state;
     private List<Tag> tags;
 }
