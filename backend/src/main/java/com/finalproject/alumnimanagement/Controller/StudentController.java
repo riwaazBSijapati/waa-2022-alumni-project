@@ -10,21 +10,23 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("api/v1/students")
 public class StudentController {
 
-    @Autowired
-    private StudentService studentService;
+        @Autowired
+        private StudentService studentService;
 
-    @PostMapping
-    public ResponseEntity<?> saveStudent(@RequestBody Student student){
-        Student result = studentService.addStudent(student);
-        if(result.getId()>0){
-            return ResponseEntity.ok(result);
+        @PostMapping
+        public ResponseEntity<?> saveStudent(@RequestBody Student student){
+            Student result = studentService.addStudent(student);
+            if(result.getId()>0){
+                return ResponseEntity.ok(result);
+            }
+            return  ResponseEntity.badRequest().body(null);
         }
-        return  ResponseEntity.badRequest().body(null);
-    }
+
 
     @GetMapping
     public ResponseEntity<List<StudentDto>> getAll(){
@@ -43,6 +45,8 @@ public class StudentController {
         }
         return ResponseEntity.badRequest().body(null);
     }
+
+
 
     @GetMapping("/filter")
     public ResponseEntity<?> getByName(@RequestParam String name) {
@@ -74,15 +78,6 @@ public class StudentController {
 
     }
 
-    @GetMapping("/cityfilter")
-    public ResponseEntity<?> getByCity(@RequestParam String city){
-        List<StudentDto> result = studentService.getStudentByCity(city);
-        if (result.size()>0) {
-            return ResponseEntity.ok(result);
-        }
-        return ResponseEntity.badRequest().body(null);
-    }
-
     @GetMapping("/stateFilter")
     public ResponseEntity<?> getByState(@RequestParam String state){
         List<StudentDto> result = studentService.getStudentByState(state);
@@ -92,6 +87,24 @@ public class StudentController {
         return ResponseEntity.badRequest().body(null);
     }
 
+    @PutMapping("/{id}/activation")
+    public ResponseEntity<?> activateStudent(@PathVariable int id){
+        StudentDto result = studentService.getActivateStudent(id);
+        if(result.getId()>0){
+            return ResponseEntity.ok(result.isActive() ?
+                    "Student has been activated" : "Student has been deactivated");
+        }
+        return ResponseEntity.badRequest().body("student is not here");
+    }
 
+    @GetMapping("/cityfilter")
+    public ResponseEntity<?> getByCity(@RequestParam String city){
+        List<StudentDto> result = studentService.getStudentByCity(city);
+        if (result.size()>0) {
+            return ResponseEntity.ok(result);
+        }
+        return ResponseEntity.badRequest().body(null);
+    }
 
 }
+
