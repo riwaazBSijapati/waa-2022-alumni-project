@@ -1,5 +1,6 @@
-package com.finalproject.alumnimanagement.Security;
+package com.finalproject.alumnimanagement.Config;
 
+import com.finalproject.alumnimanagement.Security.JwtFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService awesomeUserDetailsService;
     private final JwtFilter jwtFilter;
@@ -34,8 +35,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/api/v1/uaa").permitAll()
-                .antMatchers("/api/v1/students").hasAuthority("STUDENT")
-                .antMatchers("/api/v1/products").hasAuthority("CLIENT")
+                .antMatchers("/api/v1/students").hasAnyAuthority("ADMIN","STUDENT")
+                .antMatchers("/api/v1/jobHistory").hasAnyAuthority("ADMIN","STUDENT")
+                .antMatchers("/api/v1/jobAdvertisements").hasAnyAuthority("ADMIN","STUDENT","FACULTY")
+                .antMatchers("/api/v1/faculties").hasAnyAuthority("ADMIN","FACULTY")
                 .anyRequest()
                 .authenticated()
                 .and()

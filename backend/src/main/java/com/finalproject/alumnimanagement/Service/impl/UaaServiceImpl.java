@@ -49,4 +49,5 @@ public class UaaServiceImpl implements UaaService {
         }
         return new LoginResponse();
     }
+
 }
