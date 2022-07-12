@@ -1,13 +1,17 @@
 import React, { useRef, useState, useEffect, useContext } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
+import { Routes ,Route, useNavigate } from "react-router-dom";
 // import AuthContext from "../../context/AuthProvider";
 // import {axios} from "../../api/axios";
 import axios from "axios";
-import './Auth.css'
+import '../../styles/Auth.css';
 
-export default function Login() {
+import { connect } from 'react-redux';
+//import { withRouter} from "react-router-dom"
+
+
+export function Login() {
     const navigate = useNavigate();
     //refs created in our form to set focus in input when compo loads
     const emailRef = useRef();
@@ -29,7 +33,8 @@ export default function Login() {
         setErrMsg('')
     }, [email, pwd])
 
-    const handleSubmit = async (e) => {
+
+    const handleSubmitLogin = async (e) => {
         e.preventDefault();
         const response = await axios.post(
             'localhost:8080/api/v1',
@@ -42,6 +47,21 @@ export default function Login() {
                 console.log(error);
             });
     }
+
+    const handleSubmitForgetPass= async (e) => {
+        e.preventDefault();
+        const response = await axios.post(
+            'localhost:8080/api/v1',
+            {
+                email: email,
+                password: pwd,
+            }).then(function (response) { console.log(response) })
+            .then(navigate('/userlandingpage'))
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
     return (
         <div className="Auth-Main-Container">
             <Form className="Auth-Main">
@@ -68,10 +88,19 @@ export default function Login() {
                             required
                         />
                     </Form.Group>
-                    <Button></Button>
-                    <Button className="form-group mt-3" onClick={handleSubmit} variant="dark" type="submit">Login</Button>
+                    <Button className="form-group mt-3" onClick={handleSubmitLogin} variant="dark" type="submit">Login</Button>
+                    <Button className="form-group mt-3" onClick={handleSubmitForgetPass} variant="dark" type="submit" >Forget Password</Button>
                 </div>
             </Form>
         </div>
     );
 }
+
+const mapStateToProps = (state) => {
+    return {
+      profile: state.user.profile
+    }
+  }
+  
+  export default connect(mapStateToProps)((Login));
+  

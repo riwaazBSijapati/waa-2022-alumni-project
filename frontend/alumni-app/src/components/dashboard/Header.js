@@ -1,7 +1,7 @@
 import React from "react";
 import logo from './logo192.png'
 import { Container, Navbar, Nav, NavbarBrand, NavLink,Form,Button } from "react-bootstrap";
-import './DashStyle.css'
+import '../../styles/DashStyle.css'
 
 export default function Header() {
     return (

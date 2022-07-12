@@ -1,10 +1,10 @@
 import React from 'react'
 import { Button, Col, Nav, Row, Tab } from 'react-bootstrap'
-import Profile from '../profile/Profile'
-import ViewAdvert from '../advert/ViewAdvert'
-import UserAdvert from '../student/UserAdvert'
+import Profile from '../../components/profile/Profile'
+import ViewAdvert from '../../components/advert/ViewAdvert'
+import UserAdvert from '../../components/student/UserAdvert'
 import LandingInfo from './LandingInfo'
-import AddExperience from '../student/AddExperience'
+import AddExperience from '../../components/student/AddExperience'
 
 export default function LeftBar() {
     return(

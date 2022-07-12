@@ -1,12 +1,13 @@
 import React from "react";
 import { Route, Routes } from "react-router";
-import UserAdvert from "../student/UserAdvert";
-import ViewAdvert from "../advert/ViewAdvert";
-import Login from "../auth/Login";
-import Register from "../auth/Register";
-import LandingInfo from "../menupage/LandingInfo";
-import UserLandingPage from "../menupage/UserLandingPage";
-import Profile from "../profile/Profile"
+import UserAdvert from "../components/student/UserAdvert";
+import ViewAdvert from "../components/advert/ViewAdvert";
+import Login from "../screen/Login/Login";
+import Register from "../screen/Register/Register";
+import  PasswordResetForm from "../screen/Login/PasswordResetForm";
+import LandingInfo from "../screen/menupage/LandingInfo";
+import UserLandingPage from "../screen/menupage/UserLandingPage";
+import Profile from "../components/profile/Profile";
 
 
 export default function MyRoutes() {
@@ -19,6 +20,7 @@ export default function MyRoutes() {
             <Route path='/useradvert' element={<UserAdvert />} />
             <Route path='/viewadverts' element={<ViewAdvert/>} />
             <Route path='/landinginfo' element={<LandingInfo/>} />
+            <Route path='/passwordReset' element={<PasswordResetForm/>} />
         </Routes>
     )
 }
