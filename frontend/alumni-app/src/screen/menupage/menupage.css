@@ -1,0 +1,4 @@
+.leftCol{
+    display: flex-column;
+    max-width: 50%;
+}

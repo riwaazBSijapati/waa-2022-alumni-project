@@ -1,0 +1,48 @@
+.Auth-Main-Container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 75vh;
+}
+
+.Auth-Main {
+    width: 420px;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.Auth-Main-Content {
+    padding-left: 12%;
+    padding-right: 12%;
+}
+
+.Auth-Main-Title {
+    text-align: center;
+    margin-bottom: .5em;
+    font-size: 35px;
+    color: rgb(34, 34, 34);
+    font-weight: 800;
+}
+
+.Auth-Main-Parts{
+    margin-bottom: 1em;
+}
+
+Form.Group {
+    font-size: 40px;
+    color: rgb(34, 34, 34);
+    font-weight: bold;
+    
+}
+
+.Auth-Main Button{
+    background-color:#61dafb;
+    color:black;
+    border: none;
+    width:75%
+}
+

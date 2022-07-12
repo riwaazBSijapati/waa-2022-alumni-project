@@ -32,4 +32,8 @@ public class Student {
     private Departement major;
 
 
+
+    @ManyToOne
+    private Faculty faculty;
+
 }
