@@ -11,9 +11,10 @@ import java.util.List;
 public class JobHistoryDto {
     private int id;
     private String companyName;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
+    private String startDate;
+    private String endDate;
     private String reasonToLeave;
     private String comments;
+    private String state;
     private List<Tag> tags;
 }
