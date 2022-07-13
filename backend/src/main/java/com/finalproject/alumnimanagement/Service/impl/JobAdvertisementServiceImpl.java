@@ -3,6 +3,9 @@ package com.finalproject.alumnimanagement.Service.impl;
 
 import com.finalproject.alumnimanagement.Dto.JobAdvertisementDto;
 import com.finalproject.alumnimanagement.Dto.StudentDto;
+import com.finalproject.alumnimanagement.Entity.JobAdvertisement;
+import com.finalproject.alumnimanagement.Entity.JobHistory;
+import com.finalproject.alumnimanagement.Entity.Student;
 import com.finalproject.alumnimanagement.Repository.JobAdvertisementRepo;
 import com.finalproject.alumnimanagement.Repository.StudentRepo;
 import com.finalproject.alumnimanagement.Service.JobAdvertisementService;
@@ -41,5 +44,43 @@ public class JobAdvertisementServiceImpl implements JobAdvertisementService {
             }
         }
         return result;
+    }
+
+    @Override
+    public void addAdvertisement(JobAdvertisementDto jobAdvertisementDto) {
+        Student s = new Student();
+        s.setId(4);
+        JobAdvertisement ja = new JobAdvertisement();
+        ja.setDescription(jobAdvertisementDto.getDescription());
+        ja.setBenefits(jobAdvertisementDto.getBenefits());
+        ja.setState(jobAdvertisementDto.getState());
+        ja.setStudent(s);
+        jobAdvertisementRepo.save(ja);
+    }
+
+    @Override
+    public List<JobAdvertisementDto> search(JobAdvertisementDto jobAdvertisementDto) {
+        List<JobAdvertisementDto> all = getAllJobAdvertisements();
+        List<JobAdvertisementDto> dtoList = new ArrayList<>();
+
+        for (JobAdvertisementDto dto : all) {
+            boolean rs = true;
+            if (isNotNull(dto.getState()) && !dto.getState().contains(jobAdvertisementDto.getState())) {
+                rs = false;
+            } else if (isNotNull(dto.getDescription()) && !dto.getDescription().contains(jobAdvertisementDto.getDescription())) {
+                rs = false;
+            } else if (isNotNull(dto.getBenefits()) && !dto.getBenefits().contains(jobAdvertisementDto.getBenefits())) {
+                rs = false;
+            }
+            if(rs){
+                dtoList.add(dto);
+            }
+
+        }
+        return dtoList;
+    }
+
+    private boolean isNotNull(String s) {
+        return s != null && !s.trim().equals("");
     }
 }

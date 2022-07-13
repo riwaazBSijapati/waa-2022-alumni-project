@@ -2,6 +2,7 @@ package com.finalproject.alumnimanagement.Controller;
 
 
 import com.finalproject.alumnimanagement.Dto.JobAdvertisementDto;
+import com.finalproject.alumnimanagement.Dto.JobHistoryDto;
 import com.finalproject.alumnimanagement.Dto.StudentDto;
 import com.finalproject.alumnimanagement.Service.JobAdvertisementService;
 import com.finalproject.alumnimanagement.Service.StudentService;
@@ -37,5 +38,15 @@ public class JobAdvertisementController {
             return ResponseEntity.ok(result);
         }
         return ResponseEntity.badRequest().body(null);
+    }
+    @PostMapping("/addAdvertisement")
+    public String addAdvertisement(@RequestBody JobAdvertisementDto jobAdvertisementDto) {
+        jobAdvertisementService.addAdvertisement(jobAdvertisementDto);
+        return "success";
+    }
+
+    @PostMapping("/search")
+    public List<JobAdvertisementDto> search(@RequestBody JobAdvertisementDto jobAdvertisementDto) {
+        return jobAdvertisementService.search(jobAdvertisementDto);
     }
 }

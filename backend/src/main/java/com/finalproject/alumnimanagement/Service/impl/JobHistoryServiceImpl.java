@@ -3,6 +3,7 @@ package com.finalproject.alumnimanagement.Service.impl;
 
 import com.finalproject.alumnimanagement.Dto.JobAdvertisementDto;
 import com.finalproject.alumnimanagement.Dto.JobHistoryDto;
+import com.finalproject.alumnimanagement.Entity.JobHistory;
 import com.finalproject.alumnimanagement.Repository.JobAdvertisementRepo;
 import com.finalproject.alumnimanagement.Repository.JobHistoryRepo;
 import com.finalproject.alumnimanagement.Service.JobAdvertisementService;
@@ -29,6 +30,12 @@ public class JobHistoryServiceImpl implements JobHistoryService {
             result.add(jhd);
         });
         return result;
+    }
+
+    @Override
+    public void addJob(JobHistoryDto jobHistoryDto){
+        JobHistory jh = modelMapper.map(jobHistoryDto, JobHistory.class);
+        jobHistoryRepo.save(jh);
     }
 
 }
