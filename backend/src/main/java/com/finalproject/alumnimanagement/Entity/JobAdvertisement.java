@@ -15,11 +15,14 @@ import java.util.List;
 public class JobAdvertisement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private int id;
     private String description;
     private String benefits;
+    private String file;
+    private String state;
+    @OneToOne
+    private Student student;
     @OneToMany
     private List<Tag> tags;
-    //private List<String> files;
+
 }
