@@ -1,0 +1,12 @@
+.bg-dark>.container{
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 750px;
+}
+.bg-dark img{
+    width:50px;
+}
+
+

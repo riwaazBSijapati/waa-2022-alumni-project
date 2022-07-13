@@ -1,0 +1,5 @@
+/* table,table tr th, table tr td { border:1px solid #b331a1; } */
+table { border:1px solid #b331a1; }
+td {
+    text-align:left;
+  }
