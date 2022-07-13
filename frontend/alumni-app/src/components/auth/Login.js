@@ -67,6 +67,14 @@ export default function Login() {
                             required
                         />
                     </Form.Group>
+                    <Form.Group className="form-group mt-3" controlId="role">
+                        <Form.Label>Role</Form.Label>
+                        <Form.Select> 
+                            <option value="student">student</option>
+                            <option value="faculty">faculty</option>
+                            <option value="admin">admin</option>
+                        </Form.Select>
+                    </Form.Group>
                     <Button className="form-group mt-3" onClick={handleSubmit} variant="dark" type="submit">Login</Button>
                 </div>
             </Form>
