@@ -2,6 +2,7 @@ package com.finalproject.alumnimanagement.Controller;
 
 
 
+import com.finalproject.alumnimanagement.Dto.FacultyDto;
 import com.finalproject.alumnimanagement.Entity.Faculty;
 
 import com.finalproject.alumnimanagement.Service.FacultyService;
@@ -52,6 +53,15 @@ public class FacultyController {
             return ResponseEntity.ok(result);
         }
         return ResponseEntity.badRequest().body(null);
+    }
+
+    @PutMapping("/{id}/{activate}")
+    public ResponseEntity<?> acivateFaculty(@RequestBody int id){
+        FacultyDto result = facultyService.getActivateFaculty(id);
+        if(result!= null){
+            return  ResponseEntity.ok(result);
+        }
+         return  ResponseEntity.badRequest().body(null);
     }
 
 }

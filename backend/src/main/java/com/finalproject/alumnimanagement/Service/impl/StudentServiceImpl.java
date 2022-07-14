@@ -1,4 +1,4 @@
-package com.finalproject.alumnimanagement.Service.Impl;
+package com.finalproject.alumnimanagement.Service.impl;
 
 
 import com.finalproject.alumnimanagement.Dto.StudentDto;
@@ -35,10 +35,10 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<StudentDto> getAllStudents() {
-        List<StudentDto> result= new ArrayList<StudentDto>();
-        studentRepo.findAll().forEach(x->{
-            if(!x.is_deleted()){
-                StudentDto std= modelMapper.map(x, StudentDto.class);
+        List<StudentDto> result = new ArrayList<StudentDto>();
+        studentRepo.findAll().forEach(x -> {
+            if (!x.is_deleted()) {
+                StudentDto std = modelMapper.map(x, StudentDto.class);
                 result.add(std);
             }
         });
@@ -49,30 +49,30 @@ public class StudentServiceImpl implements StudentService {
     public StudentDto getStudentsById(int id) {
 
         Optional<Student> result1 = studentRepo.findStudentById(id);
-        if(result1.isPresent()){
+        if (result1.isPresent()) {
             StudentDto std = modelMapper.map(result1.get(), StudentDto.class);
-             return std;
+            return std;
         }
         return new StudentDto();
     }
 
     @Override
     public List<StudentDto> getStudentByName(String name) {
-        List<StudentDto> result =new ArrayList<StudentDto>();
-        studentRepo.findStudentByName(name.toLowerCase()).forEach(x->{
-            if(!x.is_deleted()){
+        List<StudentDto> result = new ArrayList<StudentDto>();
+        studentRepo.findStudentByName(name.toLowerCase()).forEach(x -> {
+            if (!x.is_deleted()) {
                 StudentDto std = modelMapper.map(x, StudentDto.class);
                 result.add(std);
             }
         });
-            return result;
+        return result;
     }
 
     @Override
     public Boolean deleteStudentById(int id) {
         Optional<Student> findStudent = studentRepo.findById(id);
 
-        if(findStudent.isPresent()){
+        if (findStudent.isPresent()) {
             Student loStudent = findStudent.get();
             loStudent.set_deleted(true);
             studentRepo.save(loStudent);
@@ -80,10 +80,11 @@ public class StudentServiceImpl implements StudentService {
         }
         return false;
     }
+
     @Override
     public Student updateStudent(Student student) {
         var findStd = studentRepo.findStudentById(student.getId());
-        if(findStd.isPresent()){
+        if (findStd.isPresent()) {
             var loStudent = findStd.get();
 
             loStudent.setFirst_name(student.getFirst_name() != null ? student.getFirst_name() : loStudent.getFirst_name());
@@ -92,11 +93,11 @@ public class StudentServiceImpl implements StudentService {
             loStudent.setPassword(student.getPassword() != null ? student.getPassword() : loStudent.getPassword());
             loStudent.setJob_interess(student.getJob_interess() != null ? student.getJob_interess() : loStudent.getJob_interess());
             loStudent.setActive(student.isActive() != false ? student.isActive() : loStudent.isActive());
-            loStudent.setGpa(student.getGpa()!= 0 ? student.getGpa() : loStudent.getGpa());
-            loStudent.setState(student.getState()!= null ? student.getState() : loStudent.getState());
+            loStudent.setGpa(student.getGpa() != 0 ? student.getGpa() : loStudent.getGpa());
+            loStudent.setState(student.getState() != null ? student.getState() : loStudent.getState());
             loStudent.setCity(student.getCity() != null ? student.getCity() : loStudent.getCity());
             loStudent.setMajor(student.getMajor() != null ? student.getMajor() : loStudent.getMajor());
-            return  studentRepo.save(loStudent);
+            return studentRepo.save(loStudent);
         }
         return new Student();
     }
@@ -126,4 +127,30 @@ public class StudentServiceImpl implements StudentService {
         });
         return result;
     }
+
+   /* @Override
+    public Boolean getStudentActivate(Student student) {
+        Optional<Student> result = studentRepo.findStudentById(student.getId());
+        if (result.isPresent()) {
+            Student loStudent = result.get();
+            if (loStudent.isActive()) {
+                loStudent.setActive(false);
+            } else {
+                loStudent.setActive(true);
+            }
+        }
+        return false;
+    }*/
+
+    @Override
+    public StudentDto getActivateStudent(int id) {
+        var loStudent = studentRepo.findStudentById(id);
+        if(loStudent.isPresent()){
+            var student = loStudent.get();
+            student.setActive(student.isActive() ? false: true);
+            return modelMapper.map(studentRepo.save(student), StudentDto.class);
+        }
+        return new StudentDto();
+    }
 }
+

@@ -13,15 +13,12 @@ public class JobHistory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String companyName;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
+    private String startDate;
+    private String endDate;
     private String state;
     @OneToMany
     private List<Tag> tags;
 
-
-//    @Fetch(FetchMode.SELECT)
-//@BatchSize(size=10)
 
 
 

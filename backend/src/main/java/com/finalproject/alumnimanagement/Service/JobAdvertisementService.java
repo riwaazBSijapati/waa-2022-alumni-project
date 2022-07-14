@@ -10,4 +10,8 @@ public interface JobAdvertisementService {
     List<JobAdvertisementDto> getAllJobAdvertisements();
     List<JobAdvertisementDto> getAllJobAdvertisementsByStudentId(int studentId);
 
+    public void addAdvertisement(JobAdvertisementDto jobAdvertisementDto);
+
+    public List<JobAdvertisementDto> search(JobAdvertisementDto jobAdvertisementDto);
+
 }

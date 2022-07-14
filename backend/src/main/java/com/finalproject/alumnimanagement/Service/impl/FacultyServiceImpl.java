@@ -1,6 +1,7 @@
 package com.finalproject.alumnimanagement.Service.impl;
 
 
+import com.finalproject.alumnimanagement.Dto.FacultyDto;
 import com.finalproject.alumnimanagement.Entity.Faculty;
 import com.finalproject.alumnimanagement.Repository.FacultyRepo;
 import com.finalproject.alumnimanagement.Service.FacultyService;
@@ -55,6 +56,21 @@ public class FacultyServiceImpl implements FacultyService {
             return true;
         }
         return false;
+    }
+
+    /**
+     * @param id 
+     * @return
+     */
+    @Override
+    public FacultyDto getActivateFaculty(int id) {
+        var loFaculty = facultyRepo.findById(id);
+        if(loFaculty.isPresent()){
+            var faculty = loFaculty.get();
+            faculty.set_deleted(faculty.isActive()? false:true);
+            return modelMapper.map(facultyRepo.save(faculty), FacultyDto.class);
+        }
+        return new FacultyDto();
     }
 }
 
